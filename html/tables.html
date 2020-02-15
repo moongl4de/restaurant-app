@@ -26,14 +26,20 @@
         </div>
     </div>
 
-    <script>
-        //AJAX CALLS
-    </script>
-
-
-    <script src="jquery-3.4.1.min.js"></script>
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-</body>
+    <script>
+        // console.log("listenning")
+        $.ajax({
+            url: "/api/tables",
+            type:"GET"
+        }).then(function (data) {
+            console.log(data);
+            //  dom elements, loop, .replace, apeend to the html card
+        })
+        .catch(function (msg) {console.log("error with: " + msg); })
+    </script>
 
+</body>
 </html>
