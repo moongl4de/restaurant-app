@@ -31,51 +31,73 @@
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="name">Name:</span>
+                            <span class="input-group-text">Name:</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        <input id="name" type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-lg">
                     </div>
 
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="phone">Phone Number:</span>
+                            <span class="input-group-text">Phone Number:</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        <input id="phone" type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-lg">
                     </div>
 
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="email">Email:</span>
+                            <span class="input-group-text">Email:</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        <input id="email" type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-lg">
                     </div>
 
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="id">Unique Id:</span>
+                            <span class="input-group-text">Unique Id:</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        <input id="id" type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-lg">
                     </div>
 
                     <br>
-                    <button type="button" id="submit-reserve" class="btn btn-primary btn-lg">Submit Reservation
+                    <button type="button" id="submit" class="btn btn-primary btn-lg">Submit Reservation
             </div>
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script>
-        //AJAX CALLS
+$("#submit").on("click", function(event) {
+        event.preventDefault();
+        const newTable = {
+          name: $("#name")
+            .val()
+            .trim(),
+          phone: $("#phone")
+            .val()
+            .trim(),
+          email: $("#email")
+            .val()
+            .trim(),
+          id: $("#id")
+            .val()
+            .trim()
+        };
+
+        $.post("/api/tables", newTable).then(function(data) {
+          console.log("reserve.html", data);
+        //   alert("Adding a reservation...");
+        });
+      });
+
     </script>
 
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </body>
 
