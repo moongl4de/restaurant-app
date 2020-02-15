@@ -50,7 +50,23 @@ app.get("/api/wait", function(req, res) {
     return res.json(waiting);
   });
 
-
+// Create New Tables - takes in JSON input
+app.post("/api/tables", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    const newTable = req.body;
+  
+    // Using a RegEx Pattern to remove spaces from newTable
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    newTables.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
+  
+    console.log(newTable);
+  
+    tables.push(newTable);
+  
+    res.json(newTable);
+  });
+  
 
 
 
