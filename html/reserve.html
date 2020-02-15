@@ -17,8 +17,8 @@
             <p class="lead">This is where the magic happens...</p>
             <hr class="my-4">
             <p>We only have 5 tables! Book your seat before they all are gone!</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">View Tables</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Make Reservation</a>
+            <a class="btn btn-primary btn-lg" href="tables.html" role="button">View Tables</a>
+            <a class="btn btn-primary btn-lg" href="home.html" role="button">Home</a>
         </div>
 
         <div class="card text-center">
@@ -89,7 +89,7 @@ $("#submit").on("click", function(event) {
             .val()
             .trim()
         };
-        
+
         $.post("/api/tables", newTable).then(function(data) {
           console.log("reserve.html", data);
         //   alert("Adding a reservation...");
