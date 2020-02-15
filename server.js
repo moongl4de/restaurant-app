@@ -14,15 +14,16 @@ app.use(express.json());
 
 // Table Data (DATA)
 // =============================================================
-const tables = [
-    {
-      customerName: "yoda",
-      phoneNumber: "23456778",
-      customerEmail: "Jedi@master.netr",
-      customerID: 900,
+const tables = [];
+const waiting = [];
+//     {
+//       customerName: "yoda",
+//       phoneNumber: "23456778",
+//       customerEmail: "Jedi@master.netr",
+//       customerID: 900,
      
-    },
-];
+//     },
+// ];
 
 
 // Routes
@@ -40,7 +41,14 @@ app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "./html/tables.html"));
   });
 
+// Displays all tables
+app.get("/api/tables", function(req, res) {
+    return res.json(tables);
+  });
 
+app.get("/api/wait", function(req, res) {
+    return res.json(waiting);
+  });
 
 
 
