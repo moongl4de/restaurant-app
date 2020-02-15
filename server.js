@@ -6,7 +6,7 @@ const path = require("path");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -40,14 +40,21 @@ app.get("/tables", function(req, res) {
 	res.sendFile(path.join(__dirname, "./html/tables.html"));
 });
 
-// Displays all tables
+// Get tables array
 app.get("/api/tables", function(req, res) {
 	return res.json(tables);
 });
 
+// Get waitlist array
 app.get("/api/wait", function(req, res) {
 	return res.json(waiting);
 });
+
+// get both arrays
+app.get("/api/all", function(req, res) {
+    return res.json({tables: tables,
+        waitlist: waitlist });
+  });
 
 // Create New Tables - takes in JSON input
 app.post("/api/tables", function(req, res) {
