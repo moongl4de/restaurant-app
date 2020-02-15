@@ -42,14 +42,13 @@
             // let email = data.email;
             // let id = data.id;
 
-    const response = data;
-      for (var i = 0; i < response.length; i++) {
-
+    const ID = data.id;
+      for (var i = 0; i < ID.length; i++) {
         newRes = $("<li></li>")
-          .text(response[i])
+          .text(ID[i])
           .addClass("list-group-item")
-          .attr("data-name", response);
-        $("saved-reservations").append(newRes);
+          .attr("data-name", ID);
+        $("saved-reservations").append(ID);
       }
         })
         .catch(function (msg) {console.log("error with: " + msg); })

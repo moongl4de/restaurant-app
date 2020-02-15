@@ -65,7 +65,7 @@
                     </div>
 
                     <br>
-                    <button type="button" id="submit" class="btn btn-primary btn-lg">Submit Reservation
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" href="tables.html" >Submit Reservation
             </div>
         </div>
     </div>
@@ -90,11 +90,16 @@ $("#submit").on("click", function(event) {
             .trim()
         };
 
-        $.post("/api/tables", newTable).then(function(data) {
-          console.log("reserve.html", data);
-        //   alert("Adding a reservation...");
-        });
-      });
+        $.post("/api/tables", newTable).then(addedtoTableArray => {
+        if(addedtoTableArray){
+        console.log("reserve.html", data);
+        alert("You have a reservation!");
+        }
+        else{
+        alert("You are on the wait list!")
+        }
+    });
+});
 
     </script>
 
