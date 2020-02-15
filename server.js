@@ -21,34 +21,35 @@ const waiting = [];
 //       phoneNumber: "23456778",
 //       customerEmail: "Jedi@master.netr",
 //       customerID: 900,
-
+     
 //     },
 // ];
+
 
 // Routes
 // =============================================================
 
 app.get("/", function(req, res) {
-	res.sendFile(path.join(__dirname, "./html/home.html"));
-});
+    res.sendFile(path.join(__dirname, "./html/home.html"));
+  });
 
 app.get("/reserve", function(req, res) {
-	res.sendFile(path.join(__dirname, "./html/reserve.html"));
-});
-
+    res.sendFile(path.join(__dirname, "./html/reserve.html"));
+  });
+  
 app.get("/tables", function(req, res) {
-	res.sendFile(path.join(__dirname, "./html/tables.html"));
-});
+    res.sendFile(path.join(__dirname, "./html/tables.html"));
+  });
 
 // Get tables array
 app.get("/api/tables", function(req, res) {
-	return res.json(tables);
-});
+    return res.json(tables);
+  });
 
 // Get waitlist array
 app.get("/api/wait", function(req, res) {
-	return res.json(waiting);
-});
+    return res.json(waiting);
+  });
 
 // get both arrays
 app.get("/api/all", function(req, res) {
@@ -66,35 +67,52 @@ app.post("/api/tables", function(req, res) {
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
     // newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
   
+
+    for(let i=0;i<tables.length;i++){
+      if(newTable === tables[i]){
+        
+      }
+    }
+    for(let i=0;i<wait.length;i++){
+      if(newTable === tables[i]){
+        
+      }
+    }
     console.log(newTable);
     if (tables.length < 5){
         tables.push(newTable);
-    }else{
-        waiting.push(newTable);
+        res.send(true)
+    }
+    else {
+        wait.push(newTable);
+        res.send(false)
     }
     res.json(newTable);
   });
 
-
-// Create New Tables - takes in JSON input
+  // Create New Tables - takes in JSON input
 // app.post("/api/wait", function(req, res) {
 //     // req.body hosts is equal to the JSON post sent from the user
 //     // This works because of our body parsing middleware
 //     const newTable = req.body;
-
+  
 //     // Using a RegEx Pattern to remove spaces from newTable
 //     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
 //     newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
-
+  
 //     console.log(newTable);
-
+  
 //     waiting.push(newTable);
-
+  
 //     res.json(newTable);
 //   });
+  
 
-// Starts the server to begin listening
+
+
+  // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-	console.log("App listening on PORT http://localhost:" + PORT);
-});
+    console.log("App listening on PORT " + PORT);
+  });
+  
