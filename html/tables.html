@@ -22,7 +22,7 @@
         </div>
 
         <div id="table-reservation" class="card text-center">
-
+        <ul class="list-group" id="saved-reservations"></ul>
         </div>
     </div>
 
@@ -37,6 +37,20 @@
         }).then(function (data) {
             console.log(data);
             //  dom elements, loop, .replace, apeend to the html card
+            // let name = data.name;
+            // let phone = data.phone;
+            // let email = data.email;
+            // let id = data.id;
+
+    const response = data;
+      for (var i = 0; i < response.length; i++) {
+
+        newRes = $("<li></li>")
+          .text(response[i])
+          .addClass("list-group-item")
+          .attr("data-name", response);
+        $("saved-reservations").append(newRes);
+      }
         })
         .catch(function (msg) {console.log("error with: " + msg); })
     </script>
