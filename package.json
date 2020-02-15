@@ -1,0 +1,23 @@
+{
+  "name": "restaurant-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "front-end.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexgignilliat/restaurant-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexgignilliat/restaurant-app/issues"
+  },
+  "homepage": "https://github.com/alexgignilliat/restaurant-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
