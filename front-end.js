@@ -10,7 +10,7 @@ $("#submit").on("click", function(event) {
       id: $("#id").val().trim()
     };
  
-    $.post("/api/tables", newResi)
+    $.post("/api/tables", newTable)
       .then(function(data) {
         console.log("reserve.html", data);
         alert("Adding a reservation...");
