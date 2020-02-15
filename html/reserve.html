@@ -17,8 +17,8 @@
             <p class="lead">This is where the magic happens...</p>
             <hr class="my-4">
             <p>We only have 5 tables! Book your seat before they all are gone!</p>
-            <a class="btn btn-primary btn-lg" href="tables.html" role="button">View Tables</a>
-            <a class="btn btn-primary btn-lg" href="home.html" role="button">Home</a>
+            <a class="btn btn-primary btn-lg" href="tables" role="button">View Tables</a>
+            <a class="btn btn-primary btn-lg" href="home" role="button">Home</a>
         </div>
 
         <div class="card text-center">
@@ -65,7 +65,7 @@
                     </div>
 
                     <br>
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" href="tables.html" >Submit Reservation
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" href="tables" >Submit Reservation
             </div>
         </div>
     </div>
@@ -90,7 +90,9 @@ $("#submit").on("click", function(event) {
             .trim()
         };
 
-        $.post("/api/tables", newTable).then(addedtoTableArray => {
+        $.post("/api/tables", newTable).then(function (data){
+
+            // need to define addedtoTableArray here
         if(addedtoTableArray){
         console.log("reserve.html", data);
         alert("You have a reservation!");
